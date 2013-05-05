@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class PollProfileExtensions implements Value {
+public class PollProfileExtensions implements Message {
 	
 	private long pollProfileExtOptions = POLL_EXT_PERIOD_NU_1SEC | POLL_EXT_PERIOD_RTSA | POLL_EXT_NU_PRIO_LIST | POLL_EXT_ENUM;
 	public static final long POLL_EXT_PERIOD_NU_1SEC = 0x80000000L;

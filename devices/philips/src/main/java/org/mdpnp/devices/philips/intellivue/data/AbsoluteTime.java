@@ -4,8 +4,9 @@ import java.nio.ByteBuffer;
 import java.util.Calendar;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class AbsoluteTime implements Value {
+public class AbsoluteTime implements Message {
 
 	
 

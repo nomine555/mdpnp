@@ -4,28 +4,28 @@ import java.net.SocketException;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.Formatable;
 import org.mdpnp.devices.philips.intellivue.Network;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
 import org.mdpnp.devices.philips.intellivue.data.IPAddressInformation;
 import org.mdpnp.devices.philips.intellivue.data.ProtocolSupport;
 import org.mdpnp.devices.philips.intellivue.data.SystemLocalization;
 import org.mdpnp.devices.philips.intellivue.data.Type;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
 import org.mdpnp.devices.philips.intellivue.dataexport.EventReport;
 import org.mdpnp.devices.philips.intellivue.dataexport.Nomenclature;
-import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperation;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.cmise.CmiseOperation;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.rose.RoseOperation;
 
 public class ConnectIndicationImpl implements ConnectIndication {
 	private final Nomenclature nomenclature = new Nomenclature();
-	private RemoteOperation remoteOperation = RemoteOperation.Invoke;
+	private RoseOperation remoteOperation = RoseOperation.Invoke;
 	
 	private int invokeId;
-	private CommandType commandType = CommandType.Get;
+	private CmiseOperation commandType = CmiseOperation.Get;
 
 	private final EventReport report = new EventReport();
 	private final AttributeValueList attrs = new AttributeValueList();
@@ -59,10 +59,10 @@ public class ConnectIndicationImpl implements ConnectIndication {
 	@SuppressWarnings("unused")
     public void parse(ByteBuffer bb) {
 		nomenclature.parse(bb);
-		remoteOperation = RemoteOperation.valueOf(Bits.getUnsignedShort(bb));
+		remoteOperation = RoseOperation.valueOf(Bits.getUnsignedShort(bb));
 		int length = Bits.getUnsignedShort(bb);
 		invokeId = Bits.getUnsignedShort(bb);
-		commandType = CommandType.valueOf(Bits.getUnsignedShort(bb));
+		commandType = CmiseOperation.valueOf(Bits.getUnsignedShort(bb));
 		int length2 = Bits.getUnsignedShort(bb);
 		report.parse(bb);
 		attrs.parse(bb);
@@ -84,7 +84,7 @@ public class ConnectIndicationImpl implements ConnectIndication {
 		Bits.putUnsignedShort(bb, remoteOperation.asInt());
 		final int invokeId = this.invokeId;
 		final EventReport report = this.report;
-		final CommandType commandType = this.commandType;
+		final CmiseOperation commandType = this.commandType;
 		final AttributeValueList attrs = this.attrs;
 		final Attribute<Type> systemType = this.systemType;
 		final Attribute<ProtocolSupport> protocolSupport = this.protocolSupport;

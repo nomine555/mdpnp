@@ -8,9 +8,10 @@ import org.mdpnp.devices.philips.intellivue.association.AssociationProtocolImpl;
 import org.mdpnp.devices.philips.intellivue.connectindication.ConnectIndication;
 import org.mdpnp.devices.philips.intellivue.connectindication.ConnectIndicationProtocol;
 import org.mdpnp.devices.philips.intellivue.connectindication.ConnectIndicationProtocolImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportProtocol;
 import org.mdpnp.devices.philips.intellivue.dataexport.impl.DataExportProtocolImpl;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.rose.RoseMessage;
 
 public class CompoundProtocol implements Protocol {
 	private final DataExportProtocol dataExportProtocol = new DataExportProtocolImpl();
@@ -35,8 +36,8 @@ public class CompoundProtocol implements Protocol {
 	}
 	@Override
 	public void format(Message message, ByteBuffer bb) {
-		if(message instanceof DataExportMessage) {
-			dataExportProtocol.format((DataExportMessage)message, bb);
+		if(message instanceof RoseMessage) {
+			dataExportProtocol.format((RoseMessage)message, bb);
 		} else if(message instanceof AssociationMessage) {
 			associationProtocol.format((AssociationMessage)message, bb);
 		} else if(message instanceof ConnectIndication) {

@@ -4,13 +4,13 @@ import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.action.ActionFactory;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportAction;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObjectClass;
+import org.mdpnp.x73.rose.RoseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +18,7 @@ public class ActionResultImpl implements ActionResult {
 	protected final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();
 	protected OIDType actionType;
 	
-	protected DataExportMessage message;
+	protected RoseMessage message;
 	protected DataExportAction action;
 	
 	private static final Logger log = LoggerFactory.getLogger(ActionResultImpl.class);
@@ -80,12 +80,12 @@ public class ActionResultImpl implements ActionResult {
 	}
 	
 	@Override
-	public DataExportMessage getMessage() {
+	public RoseMessage getMessage() {
 		return message;
 	}
 	
 	@Override
-	public void setMessage(DataExportMessage message) {
+	public void setMessage(RoseMessage message) {
 		this.message = message;
 	}
 	

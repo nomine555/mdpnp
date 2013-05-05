@@ -1,9 +1,9 @@
 package org.mdpnp.devices.philips.intellivue.dataexport.event;
 
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportEvent;
 import org.mdpnp.devices.philips.intellivue.dataexport.event.impl.MdsCreateEventImpl;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObjectClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class SampleArrayFixedValueSpecification implements Value {
-	public static class Entry implements Value {
+public class SampleArrayFixedValueSpecification implements Message {
+	public static class Entry implements Message {
 		private SampleArrayFixedValId valId;
 		private int fixedValue;
 		@Override

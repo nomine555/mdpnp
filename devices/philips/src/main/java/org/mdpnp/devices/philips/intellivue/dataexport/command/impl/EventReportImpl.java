@@ -3,14 +3,14 @@ package org.mdpnp.devices.philips.intellivue.dataexport.command.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.RelativeTime;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportEvent;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.EventReport;
 import org.mdpnp.devices.philips.intellivue.dataexport.event.EventFactory;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.rose.RoseMessage;
 
 public class EventReportImpl implements EventReport {
 	private final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();
@@ -18,7 +18,7 @@ public class EventReportImpl implements EventReport {
 	private OIDType eventType;
 	private DataExportEvent event;
 	
-	private DataExportMessage parent;
+	private RoseMessage parent;
 	
 	@Override
 	public EventReport createConfirm() {
@@ -33,11 +33,11 @@ public class EventReportImpl implements EventReport {
 	}
 	
 	@Override
-	public DataExportMessage getMessage() {
+	public RoseMessage getMessage() {
 		return parent;
 	}
 	@Override
-	public void setMessage(DataExportMessage message) {
+	public void setMessage(RoseMessage message) {
 		this.parent = message;
 	}
 	@Override

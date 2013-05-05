@@ -1,12 +1,9 @@
 package org.mdpnp.devices.philips.intellivue.attribute;
 
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.mddl.OIDType;
 
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.Value;
-
-public interface Attribute<T extends Value> extends Parseable, Formatable {
+public interface Attribute<T extends Message> extends Message {
 	OIDType getOid();
 	T getValue();
 }

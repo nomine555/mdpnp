@@ -6,7 +6,7 @@ import org.mdpnp.devices.philips.intellivue.association.AssociationAccept;
 import org.mdpnp.devices.philips.intellivue.association.AssociationMessageType;
 import org.mdpnp.devices.philips.intellivue.association.MDSEUserInfoStd;
 import org.mdpnp.devices.philips.intellivue.data.ASNLength;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
 
 public class AssociationAcceptImpl extends AbstractAssociationMessage implements AssociationAccept {
 

@@ -1,10 +1,10 @@
 package org.mdpnp.devices.philips.intellivue.data;
 
-import org.mdpnp.devices.philips.intellivue.OrdinalEnum;
 import java.nio.ByteBuffer;
 import java.util.Map;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.OrdinalEnum;
 
 public enum MDSStatus implements EnumMessage<MDSStatus>, OrdinalEnum.IntType {
 	Disconnected(0),

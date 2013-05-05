@@ -2,7 +2,10 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.nio.ByteBuffer;
 
-public class PatientMeasurement implements Value {
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.mddl.OIDType;
+
+public class PatientMeasurement implements Message {
 	private final Float value = new Float();
 	private OIDType unitCode;
 	

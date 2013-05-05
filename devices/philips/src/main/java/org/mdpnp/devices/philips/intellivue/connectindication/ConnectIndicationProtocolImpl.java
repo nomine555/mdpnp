@@ -2,7 +2,7 @@ package org.mdpnp.devices.philips.intellivue.connectindication;
 
 import java.nio.ByteBuffer;
 
-import org.mdpnp.devices.philips.intellivue.Message;
+import org.mdpnp.x73.Message;
 
 public class ConnectIndicationProtocolImpl implements ConnectIndicationProtocol {
 	private final ConnectIndication ci = new ConnectIndicationImpl();

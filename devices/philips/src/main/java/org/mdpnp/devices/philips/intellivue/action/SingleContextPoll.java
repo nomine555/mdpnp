@@ -2,8 +2,8 @@ package org.mdpnp.devices.philips.intellivue.action;
 
 import java.util.List;
 
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
 
 public interface SingleContextPoll extends Parseable, Formatable {
 	int getMdsContext();

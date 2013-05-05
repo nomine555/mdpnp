@@ -3,8 +3,8 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 import java.util.Map;
 
-import org.mdpnp.devices.philips.intellivue.OrdinalEnum;
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.OrdinalEnum;
 
 
 public enum ApplicationArea implements EnumMessage<ApplicationArea>, OrdinalEnum.IntType {

@@ -2,7 +2,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.nio.ByteBuffer;
 
-public class SystemModel implements Value {
+import org.mdpnp.x73.Message;
+
+public class SystemModel implements Message {
 	private final VariableLabel manufacturer = new VariableLabel();
 	private final VariableLabel modelNumber = new VariableLabel();
 	

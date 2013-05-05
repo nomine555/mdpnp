@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class SampleArrayCompoundObservedValue implements Value {
+public class SampleArrayCompoundObservedValue implements Message {
 
 	private final List<SampleArrayObservedValue> list = new ArrayList<SampleArrayObservedValue>();
 	

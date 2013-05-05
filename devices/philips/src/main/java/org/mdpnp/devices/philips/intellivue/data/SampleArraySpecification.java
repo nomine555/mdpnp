@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class SampleArraySpecification implements Value {
+public class SampleArraySpecification implements Message {
 	private int arraySize = 8;
 	private short sampleSize, significantBits;
 	private int flags;

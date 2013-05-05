@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
 
 public class Network {
 	public static class AddressSubnet {

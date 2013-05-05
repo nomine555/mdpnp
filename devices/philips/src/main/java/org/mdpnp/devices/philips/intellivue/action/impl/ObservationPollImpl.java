@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.philips.intellivue.action.ObservationPoll;
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
-import org.mdpnp.devices.philips.intellivue.data.Handle;
+import org.mdpnp.x73.mddl.Handle;
 
 public class ObservationPollImpl implements ObservationPoll {
 	private final Handle handle = new Handle();

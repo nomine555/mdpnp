@@ -2,7 +2,7 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.util.Map;
 
-import org.mdpnp.devices.philips.intellivue.OrdinalEnum;
+import org.mdpnp.x73.OrdinalEnum;
 
 public enum Dimension implements OrdinalEnum.IntType {
     NOM_DIM_DIMLESS(0x0200),

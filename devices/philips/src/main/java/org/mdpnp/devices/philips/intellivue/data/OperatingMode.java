@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class OperatingMode implements Value  {
+public class OperatingMode implements Message  {
 	private int bitfield;
 	
 	private static final int OPMODE_UNSPEC = 0x8000;

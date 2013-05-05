@@ -3,16 +3,16 @@ package org.mdpnp.devices.philips.intellivue.dataexport.command.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.SetResult;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.rose.RoseMessage;
 
 public class SetResultImpl implements SetResult {
 
 	private final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();
 	private final AttributeValueList avl = new AttributeValueList();
 	
-	private DataExportMessage message;
+	private RoseMessage message;
 	
 	@Override
 	public void parseMore(ByteBuffer bb) {
@@ -21,12 +21,12 @@ public class SetResultImpl implements SetResult {
 	}
 
 	@Override
-	public void setMessage(DataExportMessage message) {
+	public void setMessage(RoseMessage message) {
 		this.message = message;
 	}
 
 	@Override
-	public DataExportMessage getMessage() {
+	public RoseMessage getMessage() {
 		return message;
 	}
 

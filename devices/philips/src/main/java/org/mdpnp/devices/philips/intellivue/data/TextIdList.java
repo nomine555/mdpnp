@@ -4,9 +4,10 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
 
-public class TextIdList implements Value {
+public class TextIdList implements Message {
 	
 	private final List<TextId> list = new ArrayList<TextId>();
 	

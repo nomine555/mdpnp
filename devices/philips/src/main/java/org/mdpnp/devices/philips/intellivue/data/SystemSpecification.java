@@ -4,8 +4,9 @@ import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
+import org.mdpnp.x73.Message;
 
-public class SystemSpecification implements Value {
+public class SystemSpecification implements Message {
 	private final AttributeValueList attrs = new AttributeValueList();
 	
 	private final Attribute<MdibObjectSupport> objectSupport = AttributeFactory.getMdibObjectSupport();

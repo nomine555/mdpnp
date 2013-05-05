@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import org.mdpnp.x73.Message;
+
 @SuppressWarnings("serial")
-public class Float extends Number implements Value {
+public class Float extends Number implements Message {
 
 	private double flt;
 

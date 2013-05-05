@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class DisplayResolution implements Value {
+public class DisplayResolution implements Message {
 	private short prePoint, postPoint;
 	
 	@Override

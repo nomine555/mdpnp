@@ -5,8 +5,9 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class String implements Value {
+public class String implements Message {
 	private java.lang.String string = "";
 
 	private final Charset unicode = Charset.forName("UTF-16");

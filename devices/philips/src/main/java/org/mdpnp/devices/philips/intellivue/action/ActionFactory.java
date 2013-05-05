@@ -4,9 +4,9 @@ import org.mdpnp.devices.philips.intellivue.action.impl.ExtendedPollDataRequestI
 import org.mdpnp.devices.philips.intellivue.action.impl.ExtendedPollDataResultImpl;
 import org.mdpnp.devices.philips.intellivue.action.impl.SinglePollDataRequestImpl;
 import org.mdpnp.devices.philips.intellivue.action.impl.SinglePollDataResultImpl;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportAction;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObjectClass;
 
 public class ActionFactory {
 	public static final DataExportAction buildAction(OIDType actionType, boolean request) {

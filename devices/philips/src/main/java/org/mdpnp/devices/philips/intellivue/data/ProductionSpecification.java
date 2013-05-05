@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class ProductionSpecification implements Value {
+public class ProductionSpecification implements Message {
 
-	public static class Entry implements Value {
+	public static class Entry implements Message {
 		private ProductionSpecificationType specType;
 		private ComponentId componentId;
 		private final VariableLabel prodSpec = new VariableLabel();

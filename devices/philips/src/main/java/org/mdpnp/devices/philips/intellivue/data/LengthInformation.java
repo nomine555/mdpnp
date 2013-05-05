@@ -2,9 +2,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.nio.ByteBuffer;
 
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
+import org.mdpnp.x73.Util;
 
 public class LengthInformation implements Parseable, Formatable {
 	private int length;

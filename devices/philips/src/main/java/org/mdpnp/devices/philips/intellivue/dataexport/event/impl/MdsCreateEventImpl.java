@@ -3,8 +3,8 @@ package org.mdpnp.devices.philips.intellivue.dataexport.event.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
 import org.mdpnp.devices.philips.intellivue.dataexport.event.MdsCreateEvent;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
 
 public class MdsCreateEventImpl implements MdsCreateEvent {
 	private final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();

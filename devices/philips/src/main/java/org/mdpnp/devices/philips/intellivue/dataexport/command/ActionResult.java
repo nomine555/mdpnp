@@ -1,10 +1,10 @@
 package org.mdpnp.devices.philips.intellivue.dataexport.command;
 
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportAction;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportCommand;
+import org.mdpnp.x73.cmise.CmiseMessage;
+import org.mdpnp.x73.mddl.OIDType;
 
-public interface ActionResult extends DataExportCommand {
+public interface ActionResult extends CmiseMessage {
 
 	OIDType getActionType();
 	void setActionType(OIDType type);

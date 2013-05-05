@@ -3,13 +3,13 @@ package org.mdpnp.devices.philips.intellivue.association;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
 import org.mdpnp.devices.philips.intellivue.data.MdibObjectSupport;
 import org.mdpnp.devices.philips.intellivue.data.PollProfileSupport;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
 
 public class MDSEUserInfoStd implements Formatable, Parseable {
 	public static final long MDDL_VERSION1 = 0x80000000L;

@@ -38,23 +38,16 @@ import org.mdpnp.devices.philips.intellivue.association.impl.AssociationFinishIm
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
 import org.mdpnp.devices.philips.intellivue.connectindication.ConnectIndication;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
 import org.mdpnp.devices.philips.intellivue.data.IPAddressInformation;
 import org.mdpnp.devices.philips.intellivue.data.Label;
 import org.mdpnp.devices.philips.intellivue.data.MdibObjectSupport;
 import org.mdpnp.devices.philips.intellivue.data.NomPartition;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
 import org.mdpnp.devices.philips.intellivue.data.PollProfileSupport;
 import org.mdpnp.devices.philips.intellivue.data.ProtocolSupport;
 import org.mdpnp.devices.philips.intellivue.data.ProtocolSupport.ProtocolSupportEntry;
 import org.mdpnp.devices.philips.intellivue.data.RelativeTime;
 import org.mdpnp.devices.philips.intellivue.data.TextIdList;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportInvoke;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportResult;
-import org.mdpnp.devices.philips.intellivue.dataexport.ModifyOperator;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.Action;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.CommandFactory;
@@ -65,7 +58,15 @@ import org.mdpnp.devices.philips.intellivue.dataexport.command.Set;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.SetResult;
 import org.mdpnp.devices.philips.intellivue.dataexport.impl.DataExportInvokeImpl;
 import org.mdpnp.devices.philips.intellivue.dataexport.impl.DataExportResultImpl;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.cmise.CmiseOperation;
+import org.mdpnp.x73.cmise.ModifyOperator;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObjectClass;
+import org.mdpnp.x73.rose.RoseInvoke;
+import org.mdpnp.x73.rose.RoseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -178,8 +179,8 @@ public class Intellivue implements NetworkConnection {
 			time.setTime(System.currentTimeMillis());
 			log.trace("In Message("+simpleDateformat.format(time)+"):\n"+lineWrap(message.toString()));
 		}
-		if(message instanceof DataExportMessage) {
-			handle((DataExportMessage)message);
+		if(message instanceof RoseMessage) {
+			handle((RoseMessage)message);
 		} else 	if(message instanceof AssociationMessage) {
 			handle(sockaddr, (AssociationMessage)message);
 		} else if(message instanceof ConnectIndication) {
@@ -382,11 +383,11 @@ public class Intellivue implements NetworkConnection {
 	
 	public int requestSinglePoll(ObjectClass objectType, AttributeId attrGroup) {
 		int invoke = nextInvoke();
-		DataExportInvoke message = new DataExportInvokeImpl();
-		message.setCommandType(CommandType.ConfirmedAction);
+		RoseInvoke message = new DataExportInvokeImpl();
+		message.setCommandType(CmiseOperation.ConfirmedAction);
 		message.setInvoke(invoke);
 
-		Action action = (Action) CommandFactory.buildCommand(CommandType.ConfirmedAction, false);
+		Action action = (Action) CommandFactory.buildCommand(CmiseOperation.ConfirmedAction, false);
 		action.getManagedObject().setOidType(OIDType.lookup(ObjectClass.NOM_MOC_VMS_MDS.asInt()));
 		action.getManagedObject().getGlobalHandle().setMdsContext(0);
 		action.getManagedObject().getGlobalHandle().setHandle(0);
@@ -414,11 +415,11 @@ public class Intellivue implements NetworkConnection {
 	public int requestExtendedPoll(ObjectClass objectType, Long time, AttributeId attrGroup) {
 		
 		int invoke = nextInvoke();
-		DataExportInvoke message = new DataExportInvokeImpl();
-		message.setCommandType(CommandType.ConfirmedAction);
+		RoseInvoke message = new DataExportInvokeImpl();
+		message.setCommandType(CmiseOperation.ConfirmedAction);
 		message.setInvoke(invoke);
 		
-		Action action = (Action) CommandFactory.buildCommand(CommandType.ConfirmedAction, false);
+		Action action = (Action) CommandFactory.buildCommand(CmiseOperation.ConfirmedAction, false);
 		action.getManagedObject().setOidType(OIDType.lookup(ObjectClass.NOM_MOC_VMS_MDS.asInt()));
 		action.getManagedObject().getGlobalHandle().setMdsContext(0);
 		action.getManagedObject().getGlobalHandle().setHandle(0);
@@ -460,11 +461,11 @@ public class Intellivue implements NetworkConnection {
 	public int requestGet(List<OIDType> oids) {
 		int invoke = nextInvoke();
 		
-		DataExportInvoke message = new DataExportInvokeImpl();
-		message.setCommandType(CommandType.Get);
+		RoseInvoke message = new DataExportInvokeImpl();
+		message.setCommandType(CmiseOperation.Get);
 		message.setInvoke(invoke);
 		
-		Get get = (Get) CommandFactory.buildCommand(CommandType.Get, false);
+		Get get = (Get) CommandFactory.buildCommand(CmiseOperation.Get, false);
 		get.getManagedObject().setOidType(OIDType.lookup(ObjectClass.NOM_MOC_VMS_MDS.asInt()));
 		get.getManagedObject().getGlobalHandle().setMdsContext(0);
 		get.getManagedObject().getGlobalHandle().setHandle(0);
@@ -476,10 +477,10 @@ public class Intellivue implements NetworkConnection {
 	
 	public int requestSet(Label[] numerics, Label[] realtimeSampleArrays) {
 		int invoke;
-		DataExportInvoke message = new DataExportInvokeImpl();
-		message.setCommandType(CommandType.ConfirmedSet);
+		RoseInvoke message = new DataExportInvokeImpl();
+		message.setCommandType(CmiseOperation.ConfirmedSet);
 		message.setInvoke(invoke = nextInvoke());
-		Set set = (Set) CommandFactory.buildCommand(CommandType.ConfirmedSet, false);
+		Set set = (Set) CommandFactory.buildCommand(CmiseOperation.ConfirmedSet, false);
 		set.getManagedObject().setOidType(ObjectClass.NOM_MOC_VMS_MDS);
 		set.getManagedObject().getGlobalHandle().setMdsContext(0);
 		set.getManagedObject().getGlobalHandle().setHandle(0);
@@ -511,7 +512,7 @@ public class Intellivue implements NetworkConnection {
 		if(confirm) {
 			{
 				DataExportResult message = new DataExportResultImpl();
-				message.setCommandType(CommandType.ConfirmedEventReport);
+				message.setCommandType(CmiseOperation.ConfirmedEventReport);
 				message.setInvoke(eventReport.getMessage().getInvoke());
 				message.setCommand(eventReport.createConfirm());
 				
@@ -547,7 +548,7 @@ public class Intellivue implements NetworkConnection {
 	protected void handle(Set set, boolean confirmed) {
 		if(confirmed) {
 			DataExportResult message = new DataExportResultImpl();
-			message.setCommandType(CommandType.ConfirmedSet);
+			message.setCommandType(CmiseOperation.ConfirmedSet);
 			message.setInvoke(set.getMessage().getInvoke());
 			message.setCommand(set.createResult());
 			send(message);
@@ -622,7 +623,7 @@ public class Intellivue implements NetworkConnection {
 		}
 	}
 	
-	protected void handle(DataExportInvoke message) {
+	protected void handle(RoseInvoke message) {
 		switch(message.getCommandType()) {
 		case ConfirmedEventReport:
 			handle((EventReport) message.getCommand(), true);
@@ -648,16 +649,16 @@ public class Intellivue implements NetworkConnection {
 		}
 	}
 	
-	protected void handle(DataExportMessage message) {
+	protected void handle(RoseMessage message) {
 		if(null == message) {
 			return;
 		}
 		switch(message.getRemoteOperation()) {
 		case Invoke:
-			handle((DataExportInvoke) message);
+			handle((RoseInvoke) message);
 			break;
 		case Result:
-		case LinkedResult:
+		case LinkedInvoke:
 			handle((DataExportResult) message);
 			break;
 		default:

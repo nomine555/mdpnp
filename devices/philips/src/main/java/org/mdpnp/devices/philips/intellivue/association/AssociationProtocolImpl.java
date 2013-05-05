@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.Message;
 import org.mdpnp.devices.philips.intellivue.association.impl.AssociationAbortImpl;
 import org.mdpnp.devices.philips.intellivue.association.impl.AssociationAcceptImpl;
 import org.mdpnp.devices.philips.intellivue.association.impl.AssociationConnectImpl;
@@ -13,6 +12,7 @@ import org.mdpnp.devices.philips.intellivue.association.impl.AssociationDisconne
 import org.mdpnp.devices.philips.intellivue.association.impl.AssociationFinishImpl;
 import org.mdpnp.devices.philips.intellivue.association.impl.AssociationRefuseImpl;
 import org.mdpnp.devices.philips.intellivue.data.LengthInformation;
+import org.mdpnp.x73.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

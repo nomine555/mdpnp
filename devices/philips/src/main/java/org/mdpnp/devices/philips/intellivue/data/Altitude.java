@@ -2,7 +2,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.nio.ByteBuffer;
 
-public class Altitude implements Value {
+import org.mdpnp.x73.Message;
+
+public class Altitude implements Message {
 
 	private short altitude;
 	

@@ -2,7 +2,11 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.nio.ByteBuffer;
 
-public class NumericObservedValue implements Value {
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObservedValue;
+
+public class NumericObservedValue implements Message {
 
 	private OIDType physioId;
 	private final MeasurementState msmtState = new MeasurementState();

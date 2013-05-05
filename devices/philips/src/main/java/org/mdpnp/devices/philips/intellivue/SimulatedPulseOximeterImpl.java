@@ -18,21 +18,21 @@ import org.mdpnp.devices.philips.intellivue.action.impl.SingleContextPollImpl;
 import org.mdpnp.devices.philips.intellivue.association.AssociationFinish;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
 import org.mdpnp.devices.philips.intellivue.data.CompoundNumericObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.NumericObservedValue;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
-import org.mdpnp.devices.philips.intellivue.data.ObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.RelativeTime;
 import org.mdpnp.devices.philips.intellivue.data.SampleArrayCompoundObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.SampleArrayObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.SampleArraySpecification;
 import org.mdpnp.devices.philips.intellivue.data.UnitCode;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportResult;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.impl.ActionResultImpl;
 import org.mdpnp.devices.philips.intellivue.dataexport.impl.DataExportResultImpl;
+import org.mdpnp.x73.cmise.CmiseOperation;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.ObjectClass;
+import org.mdpnp.x73.mddl.ObservedValue;
 
 public class SimulatedPulseOximeterImpl extends IntellivueAcceptor {
 	private int count = 0;
@@ -185,7 +185,7 @@ public class SimulatedPulseOximeterImpl extends IntellivueAcceptor {
 		
 		spo2.setPhysioId(ObservedValue.NOM_PULS_OXIM_SAT_O2.asOID());
 		spo2.setUnitCode(UnitCode.NOM_DIM_PERCENT.asOID());
-		der.setCommandType(CommandType.ConfirmedAction);
+		der.setCommandType(CmiseOperation.ConfirmedAction);
 		der.setCommand(actionResult);
 		actionResult.setActionType(ObjectClass.NOM_ACT_POLL_MDIB_DATA_EXT.asOID());
 		actionResult.setAction(ePollResult);

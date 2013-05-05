@@ -7,18 +7,18 @@ import java.util.List;
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueAssertion;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
-import org.mdpnp.devices.philips.intellivue.dataexport.ModifyOperator;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.Set;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.SetResult;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.cmise.ModifyOperator;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.rose.RoseMessage;
 
 public class SetImpl implements Set {
 
 	private final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();
 	private long scope;
-	private DataExportMessage message;
+	private RoseMessage message;
 	
 	public static class AttributeModEntryImpl implements AttributeModEntry {
 
@@ -113,12 +113,12 @@ public class SetImpl implements Set {
 //	}
 
 	@Override
-	public void setMessage(DataExportMessage message) {
+	public void setMessage(RoseMessage message) {
 		this.message = message;
 	}
 
 	@Override
-	public DataExportMessage getMessage() {
+	public RoseMessage getMessage() {
 		return message;
 	}
 	

@@ -3,23 +3,23 @@ package org.mdpnp.devices.philips.intellivue.dataexport.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportError;
-import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperation;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetail;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailAccessDeniedImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailGetListImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailInvalidArgumentValueImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailInvalidObjectInstanceImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailInvalidScopeImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailNoSuchActionImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailNoSuchObjectClassImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailNoSuchObjectInstanceImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailProcessingFailureImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorDetailSetListImpl;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.RemoteError;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.rose.RoseError;
+import org.mdpnp.x73.rose.RoseOperation;
+import org.mdpnp.x73.rose.error.ErrorDetail;
+import org.mdpnp.x73.rose.error.ErrorDetailAccessDeniedImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailGetListImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailInvalidArgumentValueImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailInvalidObjectInstanceImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailInvalidScopeImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailNoSuchActionImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailNoSuchObjectClassImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailNoSuchObjectInstanceImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailProcessingFailureImpl;
+import org.mdpnp.x73.rose.error.ErrorDetailSetListImpl;
+import org.mdpnp.x73.rose.error.RemoteError;
 
-public class DataExportErrorImpl implements DataExportError {
+public class DataExportErrorImpl implements RoseError {
 
 	private int invoke;
 	private RemoteError error;
@@ -88,8 +88,8 @@ public class DataExportErrorImpl implements DataExportError {
 		return "[error="+error+",invoke="+invoke+",detail="+detail+"]";
 	}
 	@Override
-	public RemoteOperation getRemoteOperation() {
-		return RemoteOperation.Error;
+	public RoseOperation getRemoteOperation() {
+		return RoseOperation.Error;
 	}
 
 	@Override

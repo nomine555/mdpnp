@@ -6,10 +6,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class AttributeValueList implements Parseable, Formatable, Util.PrefixLengthShort.Builder<Attribute<?>> {
 	private final List<Attribute<?>> list = new java.util.ArrayList<Attribute<?>>();

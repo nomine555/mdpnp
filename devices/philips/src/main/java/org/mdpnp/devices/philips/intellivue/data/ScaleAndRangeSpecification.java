@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class ScaleAndRangeSpecification implements Value {
+public class ScaleAndRangeSpecification implements Message {
 
 	private final Float lowerAbsoluteValue = new Float();
 	private final Float upperAbsoluteValue = new Float();

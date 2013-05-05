@@ -24,7 +24,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import org.mdpnp.devices.philips.intellivue.Network;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
 
 public class ConnectIndicationTest {
 	private interface ConnectIndicationCallback {

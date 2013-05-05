@@ -5,8 +5,9 @@ import java.nio.ByteBuffer;
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
 import org.mdpnp.devices.philips.intellivue.attribute.AttributeFactory;
+import org.mdpnp.x73.Message;
 
-public class PollProfileSupport implements Value {
+public class PollProfileSupport implements Message {
 	private long pollProfileRevision = POLL_PROFILE_REV_0;
 	public static final long POLL_PROFILE_REV_0 = 0x80000000L;
 	

@@ -1,11 +1,11 @@
 package org.mdpnp.devices.philips.intellivue.dataexport.command;
 
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportCommand;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportEvent;
+import org.mdpnp.x73.cmise.CmiseMessage;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.mddl.OIDType;
 
-public interface EventReport extends DataExportCommand {
+public interface EventReport extends CmiseMessage {
 	ManagedObjectIdentifier getManagedObject();
 	OIDType getEventType();
 	void setEventType(OIDType oid);

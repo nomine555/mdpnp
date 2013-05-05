@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.ObjectClass;
 
-public class MdibObjectSupport implements Value {
+public class MdibObjectSupport implements Message {
 	private final List<MdibObjectSupportEntry> list = new ArrayList<MdibObjectSupportEntry>();
 	
 	public void addClass(ObjectClass objClass) {
@@ -18,7 +20,7 @@ public class MdibObjectSupport implements Value {
 		list.add(new MdibObjectSupportEntry(objClass, maxInstances));
 	}
 	
-	public static class MdibObjectSupportEntry implements Value {
+	public static class MdibObjectSupportEntry implements Message {
 		private final Type type;
 		private long maxInstances = MAX_INSTANCES_UNDEFINED;
 		public static final long MAX_INSTANCES_UNDEFINED = 0xFFFFFFFFL;

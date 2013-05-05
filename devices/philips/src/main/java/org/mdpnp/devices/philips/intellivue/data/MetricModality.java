@@ -3,9 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 import java.util.Map;
 
-import org.mdpnp.devices.philips.intellivue.OrdinalEnum;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.OrdinalEnum;
 
 // ought this be a bitfield and not an enum?
 public enum MetricModality implements EnumMessage<MetricModality>, OrdinalEnum.IntType {

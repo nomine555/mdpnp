@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class RelativeTime implements Value {
+public class RelativeTime implements Message {
 	private long relativeTime;
 	private static final long RESOLUTION_MICROSECONDS = 125L;
 	

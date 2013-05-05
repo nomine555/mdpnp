@@ -3,11 +3,11 @@ package org.mdpnp.devices.philips.intellivue.dataexport;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.RelativeTime;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class EventReport implements Parseable, Formatable {
 	private final ManagedObjectIdentifier identifier = new ManagedObjectIdentifier();

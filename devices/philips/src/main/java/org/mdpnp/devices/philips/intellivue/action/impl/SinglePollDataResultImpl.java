@@ -8,11 +8,11 @@ import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.action.SingleContextPoll;
 import org.mdpnp.devices.philips.intellivue.action.SinglePollDataResult;
 import org.mdpnp.devices.philips.intellivue.data.AbsoluteTime;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.RelativeTime;
 import org.mdpnp.devices.philips.intellivue.data.Type;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class SinglePollDataResultImpl implements SinglePollDataResult {
 	private int pollNumber;

@@ -4,9 +4,9 @@ import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.action.SinglePollDataRequest;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.Type;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class SinglePollDataRequestImpl implements SinglePollDataRequest {
 	private int pollNumber;

@@ -3,10 +3,10 @@ package org.mdpnp.devices.philips.intellivue.dataexport.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
 import org.mdpnp.devices.philips.intellivue.dataexport.DataExportLinkedResult;
 import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperationLinkedState;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.CommandFactory;
+import org.mdpnp.x73.cmise.CmiseOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ public class DataExportLinkedResultImpl extends DataExportResultImpl implements 
 		count = Bits.getUnsignedByte(bb);
 		invokeId = Bits.getUnsignedShort(bb);
 		int cmdType;
-		commandType = CommandType.valueOf(cmdType = Bits.getUnsignedShort(bb));
+		commandType = CmiseOperation.valueOf(cmdType = Bits.getUnsignedShort(bb));
 		int length = Bits.getUnsignedShort(bb);
 		if(commandType == null) {
 			// TODO error ish

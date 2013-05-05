@@ -4,9 +4,11 @@ import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.attribute.Attribute;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.OIDType;
 
-public class AttributeValueAssertion implements Value, Attribute<ByteArray> {
+public class AttributeValueAssertion implements Message, Attribute<ByteArray> {
 	private OIDType oidType;
 	private ByteArray value;
 

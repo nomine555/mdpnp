@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class SampleArrayCalibrationSpecification implements Value {
+public class SampleArrayCalibrationSpecification implements Message {
 	private final Float lowerAbsoluteValue = new Float();
 	private final Float upperAbsoluteValue = new Float();
 	private int lowerScaledValue, upperScaledValue, increment, calType;

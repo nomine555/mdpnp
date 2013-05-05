@@ -7,7 +7,7 @@ import java.util.List;
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.action.ObservationPoll;
 import org.mdpnp.devices.philips.intellivue.action.SingleContextPoll;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
 
 public class SingleContextPollImpl implements SingleContextPoll {
 	private int mdsContext;

@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.data.ManagedObjectIdentifier;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportMessage;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.Get;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.rose.RoseMessage;
 
 public class GetImpl implements Get {
 	private final ManagedObjectIdentifier managedObject = new ManagedObjectIdentifier();
 	private long scope;
 	private final List<OIDType> list  = new ArrayList<OIDType>();
 	
-	private DataExportMessage message;
+	private RoseMessage message;
 	
 	@Override
-	public DataExportMessage getMessage() {
+	public RoseMessage getMessage() {
 		return message;
 	}
 	@Override
-	public void setMessage(DataExportMessage message) {
+	public void setMessage(RoseMessage message) {
 		this.message = message;
 	}
 	

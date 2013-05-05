@@ -4,8 +4,11 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.mddl.OIDType;
+import org.mdpnp.x73.mddl.ObservedValue;
 
-public class SampleArrayObservedValue implements Value {
+public class SampleArrayObservedValue implements Message {
 	private OIDType physioId;
 	private final MeasurementState state = new MeasurementState();
 	private short[] value = new short[8];

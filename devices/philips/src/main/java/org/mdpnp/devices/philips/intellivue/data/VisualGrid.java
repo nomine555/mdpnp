@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class VisualGrid implements Value {
-	public static class Entry implements Value {
+public class VisualGrid implements Message {
+	public static class Entry implements Message {
 		private final Float absoluteValue = new Float();
 		private int scaledValue, level;
 		@Override

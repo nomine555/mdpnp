@@ -3,12 +3,12 @@ package org.mdpnp.devices.philips.intellivue.attribute;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
-import org.mdpnp.devices.philips.intellivue.data.Value;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.OIDType;
 
-public class AttributeImpl<T extends Value> implements Attribute<T> {
+public class AttributeImpl<T extends Message> implements Attribute<T> {
 
 	private T value;
 	

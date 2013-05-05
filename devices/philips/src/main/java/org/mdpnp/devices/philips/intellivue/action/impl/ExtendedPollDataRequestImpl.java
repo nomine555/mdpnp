@@ -5,9 +5,9 @@ import java.nio.ByteBuffer;
 import org.mdpnp.devices.io.util.Bits;
 import org.mdpnp.devices.philips.intellivue.action.ExtendedPollDataRequest;
 import org.mdpnp.devices.philips.intellivue.data.AttributeValueList;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.Type;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.ActionResult;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class ExtendedPollDataRequestImpl implements ExtendedPollDataRequest {
 	private int pollNumber;

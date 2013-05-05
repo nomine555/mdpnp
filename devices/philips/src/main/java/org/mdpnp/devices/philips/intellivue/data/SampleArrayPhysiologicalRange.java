@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class SampleArrayPhysiologicalRange implements Value {
+public class SampleArrayPhysiologicalRange implements Message {
 
 	private int lowerScaledValue, upperScaledValue;
 	

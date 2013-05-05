@@ -3,8 +3,9 @@ package org.mdpnp.devices.philips.intellivue.data;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
+import org.mdpnp.x73.Message;
 
-public class MetricSpecification implements Value {
+public class MetricSpecification implements Message {
 	private final RelativeTime updatePeriod = new RelativeTime();
 	private MetricCategory category;
 	private MetricAccess access = new MetricAccess();

@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.mddl.ManagedObjectIdentifier;
 
-public class MDSGeneralSystemInfo implements Value {
-	public static class Entry implements Value {
+public class MDSGeneralSystemInfo implements Message {
+	public static class Entry implements Message {
 		protected int choice;
 		protected byte[] value;
 		

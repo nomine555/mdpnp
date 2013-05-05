@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 import org.junit.Test;
 import org.mdpnp.devices.philips.intellivue.association.AssociationMessageType;
 import org.mdpnp.devices.philips.intellivue.data.ApplicationArea;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
 import org.mdpnp.devices.philips.intellivue.data.ComponentId;
 import org.mdpnp.devices.philips.intellivue.data.Dimension;
 import org.mdpnp.devices.philips.intellivue.data.Label;
@@ -18,8 +17,6 @@ import org.mdpnp.devices.philips.intellivue.data.MDSStatus;
 import org.mdpnp.devices.philips.intellivue.data.MetricCategory;
 import org.mdpnp.devices.philips.intellivue.data.MetricModality;
 import org.mdpnp.devices.philips.intellivue.data.NomPartition;
-import org.mdpnp.devices.philips.intellivue.data.ObjectClass;
-import org.mdpnp.devices.philips.intellivue.data.ObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.PatientBSAFormula;
 import org.mdpnp.devices.philips.intellivue.data.PatientDemographicState;
 import org.mdpnp.devices.philips.intellivue.data.PatientPacedMode;
@@ -29,12 +26,16 @@ import org.mdpnp.devices.philips.intellivue.data.ProductionSpecificationType;
 import org.mdpnp.devices.philips.intellivue.data.SampleArrayFixedValId;
 import org.mdpnp.devices.philips.intellivue.data.SimpleColor;
 import org.mdpnp.devices.philips.intellivue.data.UnitCode;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
-import org.mdpnp.devices.philips.intellivue.dataexport.ModifyOperator;
-import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperation;
 import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperationLinkedState;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.ErrorStatus;
-import org.mdpnp.devices.philips.intellivue.dataexport.error.RemoteError;
+import org.mdpnp.x73.OrdinalEnum;
+import org.mdpnp.x73.cmise.CmiseOperation;
+import org.mdpnp.x73.cmise.ModifyOperator;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.ObjectClass;
+import org.mdpnp.x73.mddl.ObservedValue;
+import org.mdpnp.x73.rose.RoseOperation;
+import org.mdpnp.x73.rose.error.ErrorStatus;
+import org.mdpnp.x73.rose.error.RemoteError;
 
 public class OrdinalEnumTest {
     @SuppressWarnings("unchecked")
@@ -72,9 +73,9 @@ public class OrdinalEnumTest {
         SimpleColor.class,
         ErrorStatus.class,
         RemoteError.class,
-        CommandType.class,
+        CmiseOperation.class,
         ModifyOperator.class,
-        RemoteOperation.class,
+        RoseOperation.class,
         UnitCode.class,
         ObservedValue.class,
         

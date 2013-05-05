@@ -5,14 +5,12 @@ import java.lang.reflect.InvocationTargetException;
 import org.mdpnp.devices.philips.intellivue.data.AbsoluteTime;
 import org.mdpnp.devices.philips.intellivue.data.Altitude;
 import org.mdpnp.devices.philips.intellivue.data.ApplicationArea;
-import org.mdpnp.devices.philips.intellivue.data.AttributeId;
 import org.mdpnp.devices.philips.intellivue.data.ByteArray;
 import org.mdpnp.devices.philips.intellivue.data.CompoundNumericObservedValue;
 import org.mdpnp.devices.philips.intellivue.data.DisplayResolution;
 import org.mdpnp.devices.philips.intellivue.data.EnumMessage;
 import org.mdpnp.devices.philips.intellivue.data.EnumValue;
 import org.mdpnp.devices.philips.intellivue.data.EnumValueImpl;
-import org.mdpnp.devices.philips.intellivue.data.Handle;
 import org.mdpnp.devices.philips.intellivue.data.IPAddressInformation;
 import org.mdpnp.devices.philips.intellivue.data.InvokeId;
 import org.mdpnp.devices.philips.intellivue.data.LineFrequency;
@@ -25,7 +23,6 @@ import org.mdpnp.devices.philips.intellivue.data.MetricSpecification;
 import org.mdpnp.devices.philips.intellivue.data.MetricState;
 import org.mdpnp.devices.philips.intellivue.data.NomenclatureVersion;
 import org.mdpnp.devices.philips.intellivue.data.NumericObservedValue;
-import org.mdpnp.devices.philips.intellivue.data.OIDType;
 import org.mdpnp.devices.philips.intellivue.data.OperatingMode;
 import org.mdpnp.devices.philips.intellivue.data.PatientBSAFormula;
 import org.mdpnp.devices.philips.intellivue.data.PatientDemographicState;
@@ -52,8 +49,11 @@ import org.mdpnp.devices.philips.intellivue.data.TextId;
 import org.mdpnp.devices.philips.intellivue.data.TextIdList;
 import org.mdpnp.devices.philips.intellivue.data.Type;
 import org.mdpnp.devices.philips.intellivue.data.UnitCode;
-import org.mdpnp.devices.philips.intellivue.data.Value;
 import org.mdpnp.devices.philips.intellivue.data.VisualGrid;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.mddl.AttributeId;
+import org.mdpnp.x73.mddl.Handle;
+import org.mdpnp.x73.mddl.OIDType;
 
 public class AttributeFactory {
 	public static final Attribute<PollProfileExtensions> getPollProfileExtensions() {
@@ -67,15 +67,15 @@ public class AttributeFactory {
 		return getAttribute(0x102, MdibObjectSupport.class);
 	}
 	
-	public static final <T extends Value> Attribute<T> getAttribute(int oid, Class<T> valueClass) {
+	public static final <T extends Message> Attribute<T> getAttribute(int oid, Class<T> valueClass) {
 		return getAttribute(OIDType.lookup(oid), valueClass);
 	}
 	
-	public static final <T extends Value> Attribute<T> getAttribute(AttributeId aid, Class<T> valueClass) {
+	public static final <T extends Message> Attribute<T> getAttribute(AttributeId aid, Class<T> valueClass) {
 		return getAttribute(aid.asOid(), valueClass);
 	}
 	
-	public static final <T extends Value> Attribute<T> getAttribute(OIDType oid, Class<T> valueClass) {
+	public static final <T extends Message> Attribute<T> getAttribute(OIDType oid, Class<T> valueClass) {
 		try {
 			return new AttributeImpl<T>(oid, valueClass.newInstance());
 		} catch (InstantiationException e) {
@@ -236,7 +236,7 @@ public class AttributeFactory {
 		if(valueType.isEnum()) {
 			return getEnumAttribute(oid, (Class<T>)valueType);
 		} else {
-			return getAttribute(oid, ((Class<Value>)valueType(oid)));
+			return getAttribute(oid, ((Class<Message>)valueType(oid)));
 		}
 	}
 }

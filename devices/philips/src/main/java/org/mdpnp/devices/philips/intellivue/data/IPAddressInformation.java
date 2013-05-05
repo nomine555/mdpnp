@@ -5,7 +5,9 @@ import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
-public class IPAddressInformation implements Value {
+import org.mdpnp.x73.Message;
+
+public class IPAddressInformation implements Message {
 
 	private final byte[] macAddress = new byte[6];
 	private final byte[] ipAddress = new byte[4];

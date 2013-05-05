@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Message;
+import org.mdpnp.x73.Util;
 
-public class ProtocolSupport implements Value {
+public class ProtocolSupport implements Message {
 	private final List<ProtocolSupportEntry> list = new ArrayList<ProtocolSupportEntry>();
 	
-	public static class ProtocolSupportEntry implements Value {
+	public static class ProtocolSupportEntry implements Message {
 		public enum ApplicationProtocol {
 			ACSE,
 			DataOut,

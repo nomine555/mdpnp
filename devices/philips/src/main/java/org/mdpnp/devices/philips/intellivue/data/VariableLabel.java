@@ -5,8 +5,8 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.Formatable;
-import org.mdpnp.devices.philips.intellivue.Parseable;
+import org.mdpnp.x73.Formatable;
+import org.mdpnp.x73.Parseable;
 
 public class VariableLabel implements Parseable, Formatable {
 	private java.lang.String string = "";

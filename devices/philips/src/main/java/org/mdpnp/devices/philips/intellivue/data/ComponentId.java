@@ -2,7 +2,7 @@ package org.mdpnp.devices.philips.intellivue.data;
 
 import java.util.Map;
 
-import org.mdpnp.devices.philips.intellivue.OrdinalEnum;
+import org.mdpnp.x73.OrdinalEnum;
 
 public enum ComponentId implements OrdinalEnum.IntType {
 	ID_COMP_PRODUCT(0x0008),

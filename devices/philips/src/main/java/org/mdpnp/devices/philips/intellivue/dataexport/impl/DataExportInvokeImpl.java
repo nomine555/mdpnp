@@ -3,22 +3,22 @@ package org.mdpnp.devices.philips.intellivue.dataexport.impl;
 import java.nio.ByteBuffer;
 
 import org.mdpnp.devices.io.util.Bits;
-import org.mdpnp.devices.philips.intellivue.dataexport.CommandType;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportCommand;
-import org.mdpnp.devices.philips.intellivue.dataexport.DataExportInvoke;
-import org.mdpnp.devices.philips.intellivue.dataexport.RemoteOperation;
 import org.mdpnp.devices.philips.intellivue.dataexport.command.CommandFactory;
-import org.mdpnp.devices.philips.intellivue.util.Util;
+import org.mdpnp.x73.Util;
+import org.mdpnp.x73.cmise.CmiseMessage;
+import org.mdpnp.x73.cmise.CmiseOperation;
+import org.mdpnp.x73.rose.RoseInvoke;
+import org.mdpnp.x73.rose.RoseOperation;
 
-public class DataExportInvokeImpl implements DataExportInvoke {
+public class DataExportInvokeImpl implements RoseInvoke {
 
 	private int invokeId;
-	private CommandType commandType;
+	private CmiseOperation commandType;
 	
-	private DataExportCommand command;
+	private CmiseMessage command;
 	
 	@Override
-	public void setCommandType(CommandType commandType) {
+	public void setCommandType(CmiseOperation commandType) {
 		this.commandType = commandType;
 	}
 	
@@ -36,7 +36,7 @@ public class DataExportInvokeImpl implements DataExportInvoke {
     @Override
 	public void parse(ByteBuffer bb) {
 		invokeId = Bits.getUnsignedShort(bb);
-		commandType = CommandType.valueOf(Bits.getUnsignedShort(bb));
+		commandType = CmiseOperation.valueOf(Bits.getUnsignedShort(bb));
 		int length = Bits.getUnsignedShort(bb);
 		command = CommandFactory.buildCommand(commandType, false);
 		command.setMessage(this);
@@ -56,17 +56,17 @@ public class DataExportInvokeImpl implements DataExportInvoke {
 
 
 	@Override
-	public CommandType getCommandType() {
+	public CmiseOperation getCommandType() {
 		return commandType;
 	}
 
 	@Override
-	public void setCommand(DataExportCommand dec) {
+	public void setCommand(CmiseMessage dec) {
 		this.command = dec;
 	}
 
 	@Override
-	public DataExportCommand getCommand() {
+	public CmiseMessage getCommand() {
 		return command;
 	}
 
@@ -76,7 +76,7 @@ public class DataExportInvokeImpl implements DataExportInvoke {
 	}
 	
 	@Override
-	public RemoteOperation getRemoteOperation() {
-		return RemoteOperation.Invoke;
+	public RoseOperation getRemoteOperation() {
+		return RoseOperation.Invoke;
 	}
 }
