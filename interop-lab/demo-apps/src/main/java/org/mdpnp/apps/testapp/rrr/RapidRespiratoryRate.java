@@ -24,6 +24,7 @@ import org.mdpnp.apps.testapp.co2.CapnoModelListener;
 import org.mdpnp.apps.testapp.vital.VitalModel;
 import org.mdpnp.devices.AbstractDevice;
 import org.mdpnp.devices.EventLoop;
+import org.mdpnp.devices.UDI;
 import org.mdpnp.devices.math.DCT;
 import org.mdpnp.devices.simulation.AbstractSimulatedDevice;
 import org.mdpnp.guis.waveform.WaveformPanel;
@@ -54,7 +55,7 @@ public class RapidRespiratoryRate extends JPanel implements CapnoModelListener {
             deviceIdentity.manufacturer = "";
             deviceIdentity.model = "Respiratory Rate Calc";
             deviceIdentity.serial_number = "1234";
-            AbstractSimulatedDevice.randomUDI(deviceIdentity);
+            UDI.randomUDI(deviceIdentity);
             writeDeviceIdentity();
         }
 

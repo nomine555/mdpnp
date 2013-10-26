@@ -33,6 +33,7 @@ import org.mdpnp.apps.testapp.xray.XRayVentPanel;
 import org.mdpnp.devices.DeviceMonitor;
 import org.mdpnp.devices.EventLoop;
 import org.mdpnp.devices.EventLoopHandler;
+import org.mdpnp.devices.UDI;
 import org.mdpnp.devices.simulation.AbstractSimulatedDevice;
 import org.mdpnp.guis.swing.CompositeDevicePanel;
 import org.slf4j.Logger;
@@ -105,7 +106,7 @@ public class DemoApp {
         TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
         final DomainParticipantQos pQos = new DomainParticipantQos();
         DomainParticipantFactory.get_instance().get_default_participant_qos(pQos);
-        String udi = AbstractSimulatedDevice.randomUDI();
+        String udi = UDI.randomUDI();
         pQos.participant_name.name = "Supervisor";
         try {
 

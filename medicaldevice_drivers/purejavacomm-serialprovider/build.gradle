@@ -1,0 +1,12 @@
+apply plugin: 'java'
+defaultTasks 'build'
+
+sourceCompatibility = JAVA_VERSION_SOURCE
+targetCompatibility = JAVA_VERSION_CLASSES
+
+dependencies {
+  compile project(':medicaldevice_drivers:common-drivers')
+  compile 'net.java.dev.jna:jna:3.4.0'
+  // For serial communications with devices
+  compile group: 'com.sparetimelabs', name: 'purejavacomm', version: '0.0.17', transitive:false
+}

@@ -1,17 +1,28 @@
 include 'data-types:x73-idl'
 
 
-include 'devices:common'
-include 'devices:oridion'
-include 'devices:cpc'
-include 'devices:draeger'
-include 'devices:nonin'
-include 'devices:philips'
-include 'devices:masimo'
-include 'devices:nellcor'
-include 'devices:simulated'
+include 'medicaldevice_interfaces:common-interfaces'
+include 'medicaldevice_interfaces:oridion-interfaces'
+include 'medicaldevice_interfaces:cpc-interfaces'
+include 'medicaldevice_interfaces:draeger-interfaces'
+include 'medicaldevice_interfaces:nonin-interfaces'
+include 'medicaldevice_interfaces:philips-interfaces'
+include 'medicaldevice_interfaces:masimo-interfaces'
+include 'medicaldevice_interfaces:nellcor-interfaces'
+include 'medicaldevice_interfaces:simulated-interfaces'
 
-include 'interop-lab:demo-purejavacomm'
+include 'medicaldevice_drivers:purejavacomm-serialprovider'
+include 'medicaldevice_drivers:common-drivers'
+include 'medicaldevice_drivers:oridion-drivers'
+include 'medicaldevice_drivers:cpc-drivers'
+include 'medicaldevice_drivers:draeger-drivers'
+include 'medicaldevice_drivers:nonin-drivers'
+include 'medicaldevice_drivers:philips-drivers'
+include 'medicaldevice_drivers:masimo-drivers'
+include 'medicaldevice_drivers:nellcor-drivers'
+include 'medicaldevice_drivers:simulated-drivers'
+include 'medicaldevice_drivers:hospira-drivers'
+include 'medicaldevice_drivers:ivy-drivers'
 
 include 'interop-lab:demo-guis'
 include 'interop-lab:demo-guis-swing'
@@ -26,8 +37,6 @@ if(hasProperty('sdk.dir') || null != System.getenv().get("ANDROID_HOME")) {
 
 
 include 'data-types:x73-idl-rti-dds'
-include 'data-types:x73-prototype'
-include 'interop-lab:demo-devices'
 include 'interop-lab:demo-apps'
 
 include 'himss-2013:docsubmit'

@@ -117,11 +117,21 @@ manifest.mainAttributes("Main-Class" : "org.mdpnp.apps.testapp.Main")
 def JOGL_version = '2.0.2'
 
 dependencies {
-    compile project(':interop-lab:demo-devices')
+    compile project(':medicaldevice_drivers:cpc-drivers')
+    compile project(':medicaldevice_drivers:draeger-drivers')
+    compile project(':medicaldevice_drivers:hospira-drivers')
+    compile project(':medicaldevice_drivers:ivy-drivers')
+    compile project(':medicaldevice_drivers:masimo-drivers')
+    compile project(':medicaldevice_drivers:nellcor-drivers')
+    compile project(':medicaldevice_drivers:nonin-drivers')
+    compile project(':medicaldevice_drivers:oridion-drivers')
+    compile project(':medicaldevice_drivers:philips-drivers')
+    compile project(':medicaldevice_drivers:simulated-drivers')
+
     compile project(':interop-lab:demo-guis')
     compile project(':interop-lab:demo-guis-swing')
 
-    runtime project(':interop-lab:demo-purejavacomm')
+    runtime project(':medicaldevice_drivers:purejavacomm-serialprovider')
 
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.2'
     runtime group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.2'

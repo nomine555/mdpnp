@@ -1,0 +1,10 @@
+apply plugin: 'java'
+defaultTasks 'build'
+
+sourceCompatibility = JAVA_VERSION_SOURCE
+targetCompatibility = JAVA_VERSION_CLASSES
+
+dependencies {
+  compile project(':medicaldevice_interfaces:masimo-interfaces')
+  compile project(':medicaldevice_drivers:common-drivers')
+}
